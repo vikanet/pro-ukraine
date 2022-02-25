@@ -81,6 +81,8 @@ nmap -T5 -p 80,443 -oN scan3.output 95.173.128-159.0-255
 sudo nmap -O -oN scan4.output 95.173.128-159.0-255
 sudo masscan 95.173.128.0/19 -p0-443 -oX scan5.output
 sudo masscan 95.173.128.0/19 -p443-1000 -oX scan6.output
+nmap -Pn --script vuln -oN scan7.output 95.173.128-159.0-255
+nmap -sL -oN scan8.output 95.173.128-159.0-255
 ```
 
 **NOTE:** the output files of the scans abore are in this repo. Skip many hours of waiting... See also **scans.summary** file with the most relevant open ports by IP.
