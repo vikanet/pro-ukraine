@@ -71,6 +71,19 @@ Another great tool is https://ipgeolocation.io/.
 "isp": The Federal Guard Service of the Russian Federation
 ```
 
+# How to know what ports are open in each target IP exposed to the Internet? Port-scan!
+
+```
+nmap -sV -sC -oN scan.output 95.173.128-159.0-255
+nmap -F -oN scan2.output 95.173.128-159.0-255
+nmap -T5 -p 80,443 -oN scan3.output 95.173.128-159.0-255
+sudo nmap -O -oN scan4.output 95.173.128-159.0-255
+sudo masscan 95.173.128.0/19 -p0-443 -oX scan5.output
+sudo masscan 95.173.128.0/19 -p443-1000 -oX scan6.output
+```
+
+**NOTE:** the output files of the scans abore are in this repo. Skip many hours of waiting... See also a summary file with the most relevant open ports by IP.
+
 # What tools the Hacktivists are possibly using to sabotage Russian targets?
 
 Hacktivists are attacking the Russian government sites trying to make them offline and to creating a huge amount of traffic in their networks. It is called Dennial-of-Server, or DoS for short. \
