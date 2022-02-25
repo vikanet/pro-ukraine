@@ -51,7 +51,8 @@ gov.ru.                 1800    IN      A       95.173.128.90
 
 # It is important to ALWAYS confirm the IP address of the target really belongs to the Russian government or not:
 
-There are many sources of this kind of information, for example https://www.nirsoft.net/countryip/ru.html. \
+There are many sources of this kind of information, for example https://www.nirsoft.net/countryip/ru.html.
+
 Just look for the IP target in the IP ranges assigned to the Russian government:
 
 ```
@@ -74,7 +75,7 @@ Another great tool is https://ipgeolocation.io/.
 # How to know what ports are open in each target IP exposed to the Internet? Port-scan!
 
 ```
-nmap -sV -sC -oN scan.output 95.173.128-159.0-255
+nmap -sV -sC -oN scan1.output 95.173.128-159.0-255
 nmap -F -oN scan2.output 95.173.128-159.0-255
 nmap -T5 -p 80,443 -oN scan3.output 95.173.128-159.0-255
 sudo nmap -O -oN scan4.output 95.173.128-159.0-255
@@ -82,11 +83,12 @@ sudo masscan 95.173.128.0/19 -p0-443 -oX scan5.output
 sudo masscan 95.173.128.0/19 -p443-1000 -oX scan6.output
 ```
 
-**NOTE:** the output files of the scans abore are in this repo. Skip many hours of waiting... See also a summary file with the most relevant open ports by IP.
+**NOTE:** the output files of the scans abore are in this repo. Skip many hours of waiting... See also **scans.summary** file with the most relevant open ports by IP.
 
 # What tools the Hacktivists are possibly using to sabotage Russian targets?
 
-Hacktivists are attacking the Russian government sites trying to make them offline and to creating a huge amount of traffic in their networks. It is called Dennial-of-Server, or DoS for short. \
+Hacktivists are attacking the Russian government sites trying to make them offline and to creating a huge amount of traffic in their networks. It is called Dennial-of-Server, or DoS for short.
+
 Pretty much anyone can run a DoS tool to make a particular IP go off line due to too many requests. See a small list of popular tools for DoS attacks:
 
 ```
@@ -104,7 +106,8 @@ Metasploit - auxiliary/dos/dns/bind_tsig.rb (Can crash a DNS server if it is vul
 
 # How do the Hacktivists are able to perform Denial-of-Service attacks without being caught?
 
-The most common way to become anonymous on the internet is by using a VPN or the Tor Network but Hacktivists oftenly use a much bigger tools: Bot Nets \
+The most common way to become anonymous on the internet is by using a VPN or the Tor Network but Hacktivists oftenly use a much bigger tools: Bot Nets
+
 By distributing it increases the demaging power over thousands or even millions of source addresses, making it very difficul to defent against.
 
 # What attack vector a Hacktivist uses agains a target?
