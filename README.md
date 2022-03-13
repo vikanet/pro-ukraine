@@ -123,6 +123,8 @@ The most common way to become anonymous on the internet is by using a VPN or the
 
 By distributing it increases the demaging power over thousands or even millions of source addresses, making it very difficul to defent against.
 
+Check out the following tool https://github.com/alexmon1989/russia_ddos
+
 # What attack vector a Hacktivist uses agains a target?
 
 Reconaissence is the first step. A simple portscan can reveal what services are behind an IP or a range of IPs. Followed by a more sofisticated fingerprinting to reveal what applications and its versions are behind each exposed (open) port.
